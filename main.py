@@ -8,7 +8,7 @@ if __name__ == "__main__":
         print("2. Run Monte Carlo Experiments")
         print("3. Visualie results")
         print("4. Exit")
-        choice = input("Choose an option (1, 2,3 or 4): ").strip()
+        choice = input("Choose an option (1,2,3 or 4): ").strip()
 
         if choice == "1":
             print(f"\nMonty Hall Game")
