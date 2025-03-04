@@ -1,6 +1,6 @@
-from monty_hall import monty_hall_switch, monty_hall_no_switch
-from game import monty_hall_game
-from visualize import line_chart
+from features.monty_hall import monty_hall_switch, monty_hall_no_switch
+from features.game import monty_hall_game
+from features.visualize import line_chart
 
 def monty_hall_run(turns, doors):
     switch = {
