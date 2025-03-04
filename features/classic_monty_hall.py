@@ -1,5 +1,7 @@
 import random
 
+# Classic monty hall problem, with 3 doors
+
 def classic_monty_hall_switch():
     doors = [1,2,3]
     car_door = random.choice(doors)

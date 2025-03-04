@@ -1,5 +1,6 @@
 import random
 
+# if the player switches
 def monty_hall_switch(n):
     doors = [f"door{nth}" for nth in range(1,n+1)]
     car_door = random.choice(doors)
@@ -17,13 +18,42 @@ def monty_hall_switch(n):
     user_door = remaining_door
     return (user_door == car_door)
 
+# if the player stays
 def monty_hall_no_switch(n):
     doors = [d for d in range(1,n+1)]
     car_door = random.choice(doors)
     user_door = random.choice(doors)
     
     return (user_door == car_door)
+
+# Simulate scenarios
+def monty_hall_runner(turns, doors):
+    switch = {
+        'win': 0,
+        'lose': 0,
+    }
     
+    no_switch = {
+        'win': 0,
+        'lose': 0,
+    }
+
+    for _ in range(0,turns):
+        res = monty_hall_switch(doors)
+        if res == 1 :
+            switch['win'] = switch['win'] + 1
+        else:
+            switch['lose'] = switch['lose'] + 1
+
+    for _ in range(0,turns):
+        res = monty_hall_no_switch(doors)
+        if res == 1 :
+            no_switch['win'] = no_switch['win'] + 1
+        else:
+            no_switch['lose'] = no_switch['lose'] + 1
+    return switch,no_switch
+    
+# Simulate the 'switch' scenario in the Monty Hall problem step by step, without optimization
 def monty_hall_switch_step_by_step(n):
     doors = ["door" + str(nth) for nth in range(1,n+1)]
     car_door = random.choice(doors)
@@ -48,7 +78,7 @@ def monty_hall_switch_step_by_step(n):
     else:
         return 0
     
-
+# Simulate the 'stay' scenario in the Monty Hall problem step by step, without optimization
 def monty_hall_no_switchs_step_by_step(n):
     doors = ["door" + str(nth) for nth in range(1,n+1)]
     car_door = random.choice(doors)
@@ -69,10 +99,4 @@ def monty_hall_no_switchs_step_by_step(n):
         return 1
     else:
         return 0
-    
-
-    
-
-for _ in range(1,10):
-    monty_hall_switch_step_by_step(10)
     
